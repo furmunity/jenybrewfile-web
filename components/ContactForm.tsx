@@ -2,8 +2,18 @@
 
 import { useState } from 'react';
 
+interface FormData {
+  companyName: string;
+  contactName: string;
+  phone: string;
+  email: string;
+  businessType: string;
+  inquiryType: string[];
+  message: string;
+}
+
 export default function ContactForm() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     companyName: '',
     contactName: '',
     phone: '',
