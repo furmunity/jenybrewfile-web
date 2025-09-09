@@ -27,86 +27,25 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Format inquiry types
-    const inquiryTypeText = formData.inquiryType.length > 0 
-      ? formData.inquiryType.join(', ')
-      : '없음';
+    // Create simple Slack message payload
+    const timestamp = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' });
+    const messageText = `🚨 *JenyBrew 새로운 문의가 도착했습니다!*
 
-    // Create Slack message payload
+*업체명:* ${formData.companyName}
+*담당자명:* ${formData.contactName}
+*연락처:* ${formData.phone}
+*이메일:* ${formData.email}
+*사업 유형:* ${getBusinessTypeLabel(formData.businessType)}
+*관심 분야:* ${getInquiryTypeLabels(formData.inquiryType)}${formData.message.trim() ? `
+
+*상세 문의사항:*
+${formData.message}` : ''}
+
+📅 *접수 시간:* ${timestamp}`;
+
     const slackPayload = {
-      blocks: [
-        {
-          type: 'header',
-          text: {
-            type: 'plain_text',
-            text: '🚨 JenyBrew 새로운 문의가 도착했습니다!',
-            emoji: true
-          }
-        },
-        {
-          type: 'section',
-          fields: [
-            {
-              type: 'mrkdwn',
-              text: `*업체명:*\n${formData.companyName}`
-            },
-            {
-              type: 'mrkdwn',
-              text: `*담당자명:*\n${formData.contactName}`
-            },
-            {
-              type: 'mrkdwn',
-              text: `*연락처:*\n${formData.phone}`
-            },
-            {
-              type: 'mrkdwn',
-              text: `*이메일:*\n${formData.email}`
-            }
-          ]
-        },
-        {
-          type: 'section',
-          fields: [
-            {
-              type: 'mrkdwn',
-              text: `*사업 유형:*\n${getBusinessTypeLabel(formData.businessType)}`
-            },
-            {
-              type: 'mrkdwn',
-              text: `*관심 분야:*\n${getInquiryTypeLabels(formData.inquiryType)}`
-            }
-          ]
-        }
-      ]
+      text: messageText
     };
-
-    // Add message section if message exists
-    if (formData.message.trim()) {
-      slackPayload.blocks.push({
-        type: 'section',
-        text: {
-          type: 'mrkdwn',
-          text: `*상세 문의사항:*\n${formData.message}`,
-          emoji: true
-        }
-      });
-    }
-
-    // Add divider and timestamp
-    slackPayload.blocks.push(
-      {
-        type: 'divider'
-      } as any,
-      {
-        type: 'context',
-        elements: [
-          {
-            type: 'mrkdwn',
-            text: `📅 접수 시간: ${new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })}`
-          }
-        ]
-      } as any
-    );
 
     // Send to Slack
     const slackResponse = await fetch(slackWebhookUrl, {
