@@ -24,7 +24,8 @@ export default function ProcessSection() {
       step: '04',
       title: '스틱 포장',
       description: '위생적이고 편리한 개별 스틱 포장으로 완성',
-      icon: 'ri-box-line'
+      icon: 'ri-archive-fill'
+
     }
   ];
 

@@ -7,8 +7,8 @@ export default function SolutionSection() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
-              보이차의 가치와<br />
-              <span className="text-amber-600">해외 시장 확장</span>
+              JenyBrew 보이차. <br></br>시간이 만드는 프리미엄.<br />
+              <span className="text-amber-600">글로벌 시장이 선택한 가치.</span>
             </h2>
             
             <div className="space-y-6">
@@ -17,9 +17,9 @@ export default function SolutionSection() {
                   <i className="ri-map-pin-line text-xl text-amber-600"></i>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">원산지의 프리미엄</h3>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">원산지 프리미엄</h3>
                   <p className="text-gray-600">
-                    중국 윈난성 원산지의 정통 보이차로, 시간에 따라 가치가 증가하는 특별한 차입니다.
+                    운남성 정통 보이차. 시간이 지날수록 깊어지는 와인 같은 가치.
                   </p>
                 </div>
               </div>
@@ -31,7 +31,7 @@ export default function SolutionSection() {
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">수집품 가치</h3>
                   <p className="text-gray-600">
-                    전통 보이차는 와인처럼 가치가 인정받는 고급 수집품으로 인식되고 있습니다.
+                    전통과 품격을 담아 고급 수집품으로 인정받는 차.
                   </p>
                 </div>
               </div>
@@ -43,8 +43,7 @@ export default function SolutionSection() {
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">아시아 시장 확산</h3>
                   <p className="text-gray-600">
-                    일본, 대만, 한국 등 동아시아에서 건강 음료로 각광받으며, 
-                    고급 선물용 시장으로 확장되고 있습니다.
+                    일본·대만·한국등  웰니스·선물 시장에서 빠르게 성장, 글로벌 경쟁력 입증.
                   </p>
                 </div>
               </div>
@@ -53,7 +52,7 @@ export default function SolutionSection() {
 
           <div className="relative">
             <img 
-              src="https://readdy.ai/api/search-image?query=Traditional%20Chinese%20pu-erh%20tea%20ceremony%20with%20aged%20tea%20cakes%20and%20elegant%20tea%20cups%2C%20warm%20wooden%20background%2C%20traditional%20Chinese%20tea%20culture%20atmosphere%2C%20professional%20product%20photography%2C%20premium%20packaging%20display%2C%20luxury%20gift%20presentation&width=600&height=700&seq=solution1&orientation=portrait"
+              src="/image/total.jpg"
               alt="보이차 전통"
               className="rounded-2xl shadow-2xl w-full h-auto object-cover"
             />

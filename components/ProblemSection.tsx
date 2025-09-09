@@ -5,17 +5,17 @@ export default function ProblemSection() {
     {
       icon: 'ri-time-line',
       title: '준비 시간 부담',
-      description: '차 도구 준비와 우림 시간으로 인한 운영 부담'
+      description: '차를 준비할 시간조차 없어 고객 응대가 늦어집니다.'
     },
     {
       icon: 'ri-tools-line',
       title: '도구 관리의 어려움',
-      description: '찻잔, 찻주전자 등 추가 도구 관리와 세척의 번거로움'
+      description: '찻잔 세척과 보관, 인력 관리까지 번거롭습니다.'
     },
     {
       icon: 'ri-heart-pulse-line',
       title: '건강 음료 니즈',
-      description: '고객들의 건강과 프리미엄 이미지 유지 요구 증가'
+      description: '커피만으로는 부족하다는 고객 요구가 늘고 있습니다.'
     }
   ];
 
@@ -24,7 +24,7 @@ export default function ProblemSection() {
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            이런 고민 있으시죠?
+            이런 고민 매일 겪고 있으신가요?
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             기존 고객에게 새로운 건강 음료를 제안하고 싶지만, 
@@ -57,8 +57,8 @@ export default function ProblemSection() {
               해결책이 필요하시죠!
             </h3>
             <p className="text-lg text-gray-600">
-              쉽게 판매할 수 있으면서도 고급스럽고 건강한 대체 음료,<br />
-              바로 <span className="font-bold text-amber-600">JenyBrew 스틱형 보이차</span>입니다.
+              제니브루 스틱 하나면 충분합니다.<br />
+              준비도, 도구도 필요없는 <span className="font-bold text-amber-600">99.9% 정통 보이차.</span> <br /> 고객에게는 새로운 건강 경험! 매장은 더 높은 매출&효율을 얻습니다!
             </p>
           </div>
         </div>

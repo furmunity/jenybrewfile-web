@@ -3,29 +3,53 @@
 export default function Testimonials() {
   const testimonials = [
     {
-      name: '김민수',
-      position: '카페 운영진',
-      company: '서울 강남구 소재 카페',
-      content: '커피숍에서 보이차를 제공할 수 있어서, 차 도구 관리나 직원 교육 없이도 바로 설치할 수 있었습니다. 고객들이 건강한 옵션이 있다고 매우 만족해합니다.',
+      name: '김민0',
+      position: '남, 30대 ',
+      company: '카페 운영자, 서울 강남 ',
+      content: '"커피만 팔던 매장에 제니브루를 추가했더니, 건강 음료 찾는 고객이 늘어 객단가가 확실히 올랐습니다."',
       rating: 5,
       image: 'https://readdy.ai/api/search-image?query=Professional%20Korean%20cafe%20manager%20in%20modern%20coffee%20shop%20interior%2C%20friendly%20smile%2C%20business%20casual%20attire%2C%20warm%20lighting%2C%20contemporary%20cafe%20atmosphere%2C%20professional%20portrait%20photography&width=100&height=100&seq=testimonial1&orientation=squarish'
     },
     {
-      name: '박영희',
-      position: '구매 담당자',
-      company: '대형 프랜차이즈 본부',
-      content: '고객 반응이 정말 훌륭했습니다. 건강 음료 이미지를 강화하고 프리미엄 포인트로 선물도 받을 수 있어서 매출 증대에 큰 도움이 되었습니다.',
-      rating: 5,
+      name: '박영0',
+      position: '여, 40대 ',
+      company: '프랜차이즈 구매 담당자',
+      content: '"도구 없이 바로 제공 가능해 매뉴얼 교육도 쉽고, 매출 효율이 좋아 전 매장 도입을 검토 중입니다."',
+      rating: 4,
       image: 'https://readdy.ai/api/search-image?query=Professional%20Korean%20businesswoman%20in%20corporate%20office%20setting%2C%20confident%20expression%2C%20business%20suit%2C%20modern%20office%20background%2C%20professional%20headshot%20photography%2C%20corporate%20portrait&width=100&height=100&seq=testimonial2&orientation=squarish'
     },
     {
-      name: '이준호',
-      position: '사장',
-      company: '부산 해운대 티하우스',
-      content: '전통 차의 품질은 그대로 유지하면서도 현대적인 편리함을 제공할 수 있어서 정말 만족합니다. 특히 일본 관광객들이 선물용으로 많이 구매해가세요.',
+      name: '이준0',
+      position: '남, 50대',
+      company: '부산 해운대 티하우스 사장',
+      content: '"외국인 관광객들이 선물용으로 많이 구매합니다. 전통 차의 품격과 현대적 편리함이 결합된 느낌입니다."',
       rating: 5,
       image: 'https://readdy.ai/api/search-image?query=Korean%20tea%20house%20owner%20in%20traditional%20yet%20modern%20tea%20shop%2C%20warm%20and%20welcoming%20atmosphere%2C%20traditional%20Korean%20interior%20design%20elements%2C%20professional%20business%20portrait&width=100&height=100&seq=testimonial3&orientation=squarish'
-    }
+    },
+    {
+      name: '박선0',
+      position: '남, 30대 ',
+      company: '스타트업 CEO, 성수',
+      content: '"사무실 비치용으로 두니 직원들이 커피 대신 자주 마십니다. 집중력도 높아지고 복지 효과도 있어요"',
+      rating: 4,
+      image:'/image/spy-fill.png'
+      },
+      {
+      name: '최재0',
+      position: '남, 50대',
+      company: '골프장 회원, 용인',
+      content: '"라운드 시작전 클럽하우스에서 커피대신 제니브루를 마셨는데, 시원하고 개운했습니다.숙취 해소에도 좋아 동반자들에게 큰 호응을 얻었습니다."',
+      rating: 5,
+      image:'/image/spy-fill.png'
+      },
+      {
+      name: '김지0',
+      position: '여, 50대',
+      company: '대기업 임원, 서울',
+      content: `"선물용 패키지가 고급스러워 거래처에 전달했는데 반응이 정말 좋았습니다.특히 '부담 없는 건강 차'라는 이미지 덕분에 신뢰가 높아졌습니다."`,
+      rating: 5,
+      image: '/image/pa.jpg'
+      },
   ];
 
   return (
@@ -87,7 +111,7 @@ export default function Testimonials() {
                 <p className="text-gray-600">도입 매장 수</p>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-amber-600 mb-2">4.9</div>
+                <div className="text-4xl font-bold text-amber-600 mb-2">4.9/5</div>
                 <p className="text-gray-600">평균 평점</p>
               </div>
             </div>

@@ -38,8 +38,7 @@ export default function ComparisonTable() {
             왜 <span className="text-amber-600">JenyBrew</span>인가요?
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            전통 보이차와 JenyBrew 스틱형 보이차의 차이점을 
-            한눈에 비교해보세요.
+            전통 보이차와 다른, 제니브루만의 확실한 차별점
           </p>
         </div>
 
@@ -78,12 +77,12 @@ export default function ComparisonTable() {
         <div className="mt-12 text-center">
           <div className="bg-amber-50 rounded-2xl p-8 max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              결론: 더 쉽고, 더 편리하고, 더 프리미엄하게!
+              제니브루로 "더 건강하게, 더 편리하고, 더 프리미엄하게!""
             </h3>
             <p className="text-lg text-gray-700">
-              전통의 가치는 그대로 유지하면서, 현대적인 편리함을 더한 
-              <span className="font-bold text-amber-600"> JenyBrew 스틱형 보이차</span>로 
-              고객에게 새로운 경험을 선사하세요.
+              제니브루 스틱형 보이차는 전통의 가치를 지키면서도 <br/>
+              <span className="font-bold text-amber-600"> ZERO TIME의 편리함과 프리미엄 이미지</span> 
+              를 동시에 제공합니다. <br/> 고객에게는 건강하고 특별한 경험을, 매장에는 운영 효율과 새로운 매출 기회를 선사합니다.
             </p>
           </div>
         </div>

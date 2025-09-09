@@ -5,25 +5,25 @@ export default function MarketAnalysis() {
     {
       country: '일본',
       percentage: '35%',
-      description: '건강 웰니스 음료 시장 선도, 오미야게 선물 문화 발달',
-      icon: 'ri-heart-pulse-line'
+      description: '웰니스 음료·선물 문화 성장',
+      icon: 'fi fi-jp'
     },
     {
       country: '대만',
       percentage: '28%',
       description: '전통 차 문화 기반, 프리미엄 보이차 시장 성숙',
-      icon: 'ri-cup-line'
+      icon: 'fi fi-tw'
     },
     {
       country: '한국',
       percentage: '22%',
-      description: '건강 트렌드 급성장, 고급 음료 선호도 증가',
-      icon: 'ri-trending-up-line'
+      description: '건강·프리미엄 음료 수요 급증',
+      icon: 'fi fi-kr'
     },
     {
       country: '기타',
       percentage: '15%',
-      description: '동남아시아 및 북미 시장 확장 중',
+      description: '동남아·북미·유럽 시장 확대 중',
       icon: 'ri-global-line'
     }
   ];
@@ -33,11 +33,11 @@ export default function MarketAnalysis() {
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            <span className="text-amber-600">일본 중심</span> 해외 시장 분석
+            <span className="text-amber-600">보이차 해외시장 분석</span>과 특별한 기회
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            아시아 시장에서 보이차가 프리미엄 건강 음료로 
-            자리잡고 있는 현황을 확인해보세요.
+            보이차는 글로벌 시장에서 웰니스와 프리미엄을 동시에 선도하는 차세대 건강 음료 카테고리입니다.
+
           </p>
         </div>
 
@@ -61,7 +61,7 @@ export default function MarketAnalysis() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <h3 className="text-3xl font-bold text-gray-900 mb-6">
-              일본 시장의 특별한 기회
+              특별한 기회
             </h3>
             
             <div className="space-y-4">
@@ -70,8 +70,8 @@ export default function MarketAnalysis() {
                   <i className="ri-gift-line text-amber-600"></i>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-1">선물 문화 (오미야게)</h4>
-                  <p className="text-gray-600 text-sm">차를 선물로 주는 문화가 발달되어 있어 B2B 진출에 유리</p>
+                  <h4 className="font-semibold text-gray-900 mb-1">선물용 패키지 등 활용</h4>
+                  <p className="text-gray-600 text-sm">직원/ 거래처 명절 선물 등으로 활용가능 </p>
                 </div>
               </div>
 
@@ -81,7 +81,7 @@ export default function MarketAnalysis() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-1">건강 및 전통 중시</h4>
-                  <p className="text-gray-600 text-sm">건강, 전통, 프리미엄 이미지를 중요하게 생각하는 소비자 특성</p>
+                  <p className="text-gray-600 text-sm">커피·밀크티 대체 가능한 글로벌 친화력</p>
                 </div>
               </div>
 
@@ -91,7 +91,7 @@ export default function MarketAnalysis() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-1">B2B 거래 확장</h4>
-                  <p className="text-gray-600 text-sm">기업 간 거래에서도 고급 티 브랜드로 인정받기 용이</p>
+                  <p className="text-gray-600 text-sm">기업 간 거래에서도 고급 티 브랜드로 인정 가능</p>
                 </div>
               </div>
             </div>

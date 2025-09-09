@@ -20,13 +20,13 @@ export default function Hero() {
           </div>
           
           <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-            커피한잔 5분이면 다 드시는 고객님께<br />
-            <span className="text-amber-600">다른 제품을 판매하고 싶으신가요?</span>
+            커피 5분에 한잔! 아쉬운 매출!<br />
+            <span className="text-amber-600">액상스틱 보이차 제안은 어떠세요?</span>
           </h2>
           
           <p className="text-xl md:text-2xl mb-8 leading-relaxed opacity-80">
-            번거로운 차도구 NO!, 물에 바로 타는 프리미엄 스틱형 보이차로<br />
-            고객에게 새로운 건강 음료 경험을 선사하세요
+            번거로운 차도구, 기다림 NO!, 스틱 하나로 완성되는 99.9% 정통 보이차.<br />
+            프리미엄 건강 음료로 고객의 선택을 넓히세요.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -56,13 +56,13 @@ export default function Hero() {
         </div>
         
         <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-          커피한잔 5분이면 다 드시는 고객님께<br />
-          <span className="text-amber-400">프리미엄 건강 음료, 보이차로 매출 UP!</span>
+        커피 5분에 한잔! 아쉬운 매출!<br />
+          <span className="text-amber-400">액상스틱 보이차 제안은 어떠세요?</span>
         </h2>
         
         <p className="text-xl md:text-2xl mb-8 leading-relaxed opacity-90">
-          번거로운 차도구 NO!, 물에 바로 타는 프리미엄 스틱형 보이차로<br />
-          고객에게 새로운 건강 음료 경험을 선사하세요
+          번거로운 차도구, 기다림 NO!, 스틱 하나로 완성되는 99.9% 정통 보이차.<br />
+          프리미엄 건강 음료로 고객의 선택을 넓히세요.
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

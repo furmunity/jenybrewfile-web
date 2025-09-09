@@ -24,6 +24,7 @@ export default function ContactForm() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState('');
+  const [showToast, setShowToast] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -48,10 +49,9 @@ export default function ContactForm() {
     setIsSubmitting(true);
     setSubmitStatus('');
 
-    let slackSuccess = false;
-    let jotformSuccess = false;
+    let submissionSuccess = false;
 
-    // Send to Slack (with individual error handling)
+    // Send to Slack
     try {
       console.log('Sending to Slack...', formData);
       const slackResponse = await fetch('/api/slack-notification', {
@@ -62,8 +62,8 @@ export default function ContactForm() {
         body: JSON.stringify(formData),
       });
       
-      slackSuccess = slackResponse.ok;
-      if (slackSuccess) {
+      submissionSuccess = slackResponse.ok;
+      if (submissionSuccess) {
         console.log('✅ Slack notification sent successfully');
       } else {
         console.error('❌ Slack notification failed:', slackResponse.status, slackResponse.statusText);
@@ -84,47 +84,13 @@ export default function ContactForm() {
       }
     } catch (error) {
       console.error('❌ Slack request failed:', error);
-      slackSuccess = false;
-    }
-
-    // Send to JotForm (with individual error handling)
-    try {
-      console.log('Sending to JotForm...');
-      const formDataToSubmit = new FormData();
-      formDataToSubmit.append('companyName', formData.companyName);
-      formDataToSubmit.append('contactName', formData.contactName);
-      formDataToSubmit.append('phone', formData.phone);
-      formDataToSubmit.append('email', formData.email);
-      formDataToSubmit.append('businessType', formData.businessType);
-      formDataToSubmit.append('inquiryType', formData.inquiryType.join(', '));
-      formDataToSubmit.append('message', formData.message);
-
-      const jotformResponse = await fetch('https://submit.jotform.com/api/233642986928072', {
-        method: 'POST',
-        body: formDataToSubmit
-      });
-
-      jotformSuccess = jotformResponse.ok;
-      if (jotformSuccess) {
-        console.log('✅ JotForm submission successful');
-      } else {
-        console.error('❌ JotForm submission failed:', jotformResponse.status, jotformResponse.statusText);
-        const errorText = await jotformResponse.text().catch(() => 'Unknown error');
-        console.error('JotForm error response:', errorText);
-      }
-    } catch (error) {
-      console.error('❌ JotForm request failed:', error);
-      jotformSuccess = false;
+      submissionSuccess = false;
     }
 
     // Handle final result
-    if (slackSuccess || jotformSuccess) {
-      const message = '문의가 성공적으로 전송되었습니다. 빠른 시일 내에 연락드리겠습니다!';
-      
-      // Log final status for debugging
-      console.log(`📊 Final status - Slack: ${slackSuccess ? '✅' : '❌'}, JotForm: ${jotformSuccess ? '✅' : '❌'}`);
-      
-      setSubmitStatus(message);
+    if (submissionSuccess) {
+      setSubmitStatus('문의가 성공적으로 전송되었습니다. 빠른 시일 내에 연락드리겠습니다!');
+      setShowToast(true);
       setFormData({
         companyName: '',
         contactName: '',
@@ -134,9 +100,21 @@ export default function ContactForm() {
         inquiryType: [],
         message: ''
       });
+      
+      // Auto hide toast after 5 seconds
+      setTimeout(() => {
+        setShowToast(false);
+        setSubmitStatus('');
+      }, 5000);
     } else {
-      console.error('❌ Both Slack and JotForm submissions failed');
       setSubmitStatus('전송 중 오류가 발생했습니다. 다시 시도해주세요.');
+      setShowToast(true);
+      
+      // Auto hide error toast after 5 seconds
+      setTimeout(() => {
+        setShowToast(false);
+        setSubmitStatus('');
+      }, 5000);
     }
 
     setIsSubmitting(false);
@@ -309,13 +287,20 @@ export default function ContactForm() {
               )}
             </button>
 
-            {submitStatus && (
-              <div className={`mt-4 p-4 rounded-lg text-center ${
+            {showToast && submitStatus && (
+              <div className={`mt-4 p-4 rounded-lg text-center transition-all duration-300 ${
                 submitStatus.includes('성공') 
                   ? 'bg-green-100 text-green-800 border border-green-300' 
                   : 'bg-red-100 text-red-800 border border-red-300'
               }`}>
-                {submitStatus}
+                <div className="flex items-center justify-center gap-2">
+                  <i className={`${
+                    submitStatus.includes('성공') 
+                      ? 'ri-check-circle-line text-green-600' 
+                      : 'ri-error-warning-line text-red-600'
+                  } text-lg`}></i>
+                  <span>{submitStatus}</span>
+                </div>
               </div>
             )}
           </form>
@@ -328,21 +313,21 @@ export default function ContactForm() {
                 <i className="ri-phone-line text-2xl text-amber-600"></i>
               </div>
               <h4 className="font-semibold mb-2">전화 문의</h4>
-              <p className="text-gray-300">02-1234-5678</p>
+              <p className="text-gray-300">010-8890-3201</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <i className="ri-mail-line text-2xl text-amber-600"></i>
               </div>
               <h4 className="font-semibold mb-2">이메일</h4>
-              <p className="text-gray-300">contact@jenybrew.com</p>
+              <p className="text-gray-300">smart.luffy@furmunity.kr</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <i className="ri-time-line text-2xl text-amber-600"></i>
               </div>
               <h4 className="font-semibold mb-2">상담 시간</h4>
-              <p className="text-gray-300">평일 09:00-18:00</p>
+              <p className="text-gray-300">평일 10:00-19:00</p>
             </div>
           </div>
         </div>
