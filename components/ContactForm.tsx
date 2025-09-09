@@ -48,7 +48,48 @@ export default function ContactForm() {
     setIsSubmitting(true);
     setSubmitStatus('');
 
+    let slackSuccess = false;
+    let jotformSuccess = false;
+
+    // Send to Slack (with individual error handling)
     try {
+      console.log('Sending to Slack...', formData);
+      const slackResponse = await fetch('/api/slack-notification', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      slackSuccess = slackResponse.ok;
+      if (slackSuccess) {
+        console.log('✅ Slack notification sent successfully');
+      } else {
+        console.error('❌ Slack notification failed:', slackResponse.status, slackResponse.statusText);
+        const errorText = await slackResponse.text().catch(() => 'Unknown error');
+        console.error('Slack error response:', errorText);
+        
+        // Check if it's a configuration issue
+        if (slackResponse.status === 500) {
+          try {
+            const errorData = JSON.parse(errorText);
+            if (errorData.error === 'Slack configuration is missing') {
+              console.warn('⚠️ Slack webhook URL is not configured. Please set SLACK_WEBHOOK_URL environment variable.');
+            }
+          } catch {
+            // Ignore parsing errors, just log the original error
+          }
+        }
+      }
+    } catch (error) {
+      console.error('❌ Slack request failed:', error);
+      slackSuccess = false;
+    }
+
+    // Send to JotForm (with individual error handling)
+    try {
+      console.log('Sending to JotForm...');
       const formDataToSubmit = new FormData();
       formDataToSubmit.append('companyName', formData.companyName);
       formDataToSubmit.append('contactName', formData.contactName);
@@ -58,30 +99,47 @@ export default function ContactForm() {
       formDataToSubmit.append('inquiryType', formData.inquiryType.join(', '));
       formDataToSubmit.append('message', formData.message);
 
-      const response = await fetch('https://submit.jotform.com/api/233642986928072', {
+      const jotformResponse = await fetch('https://submit.jotform.com/api/233642986928072', {
         method: 'POST',
         body: formDataToSubmit
       });
 
-      if (response.ok) {
-        setSubmitStatus('문의가 성공적으로 전송되었습니다. 빠른 시일 내에 연락드리겠습니다!');
-        setFormData({
-          companyName: '',
-          contactName: '',
-          phone: '',
-          email: '',
-          businessType: '',
-          inquiryType: [],
-          message: ''
-        });
+      jotformSuccess = jotformResponse.ok;
+      if (jotformSuccess) {
+        console.log('✅ JotForm submission successful');
       } else {
-        setSubmitStatus('전송 중 오류가 발생했습니다. 다시 시도해주세요.');
+        console.error('❌ JotForm submission failed:', jotformResponse.status, jotformResponse.statusText);
+        const errorText = await jotformResponse.text().catch(() => 'Unknown error');
+        console.error('JotForm error response:', errorText);
       }
     } catch (error) {
-      setSubmitStatus('전송 중 오류가 발생했습니다. 다시 시도해주세요.');
-    } finally {
-      setIsSubmitting(false);
+      console.error('❌ JotForm request failed:', error);
+      jotformSuccess = false;
     }
+
+    // Handle final result
+    if (slackSuccess || jotformSuccess) {
+      const message = '문의가 성공적으로 전송되었습니다. 빠른 시일 내에 연락드리겠습니다!';
+      
+      // Log final status for debugging
+      console.log(`📊 Final status - Slack: ${slackSuccess ? '✅' : '❌'}, JotForm: ${jotformSuccess ? '✅' : '❌'}`);
+      
+      setSubmitStatus(message);
+      setFormData({
+        companyName: '',
+        contactName: '',
+        phone: '',
+        email: '',
+        businessType: '',
+        inquiryType: [],
+        message: ''
+      });
+    } else {
+      console.error('❌ Both Slack and JotForm submissions failed');
+      setSubmitStatus('전송 중 오류가 발생했습니다. 다시 시도해주세요.');
+    }
+
+    setIsSubmitting(false);
   };
 
   return (
