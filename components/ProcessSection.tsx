@@ -5,27 +5,26 @@ export default function ProcessSection() {
     {
       step: '01',
       title: '원료 선별',
-      description: '윈남성 보이현의 최고급 차잎만을 엄선하여 수입',
+      description: '운남성 보이현 최고급 찻잎 엄선 → 프리미엄 신뢰성 확보',
       icon: 'ri-leaf-line'
     },
     {
       step: '02',
       title: '독창 공법',
-      description: 'JenyBrew만의 특허 공법으로 영양소 손실 없이 추출',
+      description: '영양소 손실 없는 노하우 공법 → 웰니스 트렌드 맞춤',
       icon: 'ri-flask-line'
     },
     {
       step: '03',
       title: '농축 및 처리',
-      description: '무첨가 원칙으로 자연 그대로의 맛과 향을 보존',
+      description: '무첨가·5BRIX 농축 → 일정한 맛과 안정성 제공',
       icon: 'ri-settings-line'
     },
     {
       step: '04',
       title: '스틱 포장',
-      description: '위생적이고 편리한 개별 스틱 포장으로 완성',
-      icon: 'ri-archive-fill'
-
+      description: '위생적 개별 포장 → 즉석 서비스·선물용 최적화',
+      icon: 'ri-box-line'
     }
   ];
 

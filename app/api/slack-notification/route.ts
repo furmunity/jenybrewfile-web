@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+export const dynamic = 'force-dynamic';
+
 interface SlackMessage {
   companyName: string;
   contactName: string;
@@ -84,7 +86,8 @@ export async function POST(request: NextRequest) {
         type: 'section',
         text: {
           type: 'mrkdwn',
-          text: `*상세 문의사항:*\n${formData.message}`
+          text: `*상세 문의사항:*\n${formData.message}`,
+          emoji: true
         }
       });
     }
@@ -93,7 +96,7 @@ export async function POST(request: NextRequest) {
     slackPayload.blocks.push(
       {
         type: 'divider'
-      },
+      } as any,
       {
         type: 'context',
         elements: [
@@ -102,7 +105,7 @@ export async function POST(request: NextRequest) {
             text: `📅 접수 시간: ${new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })}`
           }
         ]
-      }
+      } as any
     );
 
     // Send to Slack
