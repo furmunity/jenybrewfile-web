@@ -38,7 +38,7 @@ export default function Testimonials() {
       name: '최재0',
       position: '남, 50대',
       company: '골프장 회원, 용인',
-      content: '"라운드 시작전 클럽하우스에서 커피대신 제니브루를 마셨는데, 시원하고 개운했습니다.숙취 해소에도 좋아 동반자들에게 큰 호응을 얻었습니다."',
+      content: '"라운드 시작전 클럽하우스에서 커피대신 제니브루를 마셨는데, 시원하고 개운했습니다.숙취 해소에도 좋아 동반자들에게 큰 호응을 얻었습니다.”',
       rating: 5,
       image:'/image/spy-fill.png'
       },
@@ -46,7 +46,7 @@ export default function Testimonials() {
       name: '김지0',
       position: '여, 50대',
       company: '대기업 임원, 서울',
-      content: '"선물용 패키지가 고급스러워 거래처에 전달했는데 반응이 정말 좋았습니다.특히 \'부담 없는 건강 차\'라는 이미지 덕분에 신뢰가 높아졌습니다."',
+      content: '"선물용 패키지가 고급스러워 거래처에 전달했는데 반응이 정말 좋았습니다.특히 ‘부담 없는 건강 차’라는 이미지 덕분에 신뢰가 높아졌습니다.”',
       rating: 5,
       image: '/image/pa.jpg'
       },

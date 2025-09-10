@@ -21,7 +21,7 @@ export default function Hero() {
           
           <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
             커피 5분에 한잔! 아쉬운 매출!<br />
-            <span className="text-amber-400">액상스틱 보이차 제안은 어떠세요?</span>
+            <span className="text-amber-600">액상스틱 보이차 제안 어떠세요?</span>
           </h2>
           
           <p className="text-xl md:text-2xl mb-8 leading-relaxed opacity-80">
